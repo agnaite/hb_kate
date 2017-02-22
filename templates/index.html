@@ -4,8 +4,8 @@
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <style type="text/css">
     body, button { font-family: 'menlo'; }
-    button { margin-top: 100px; }
-    #data { margin-top: 100px; border: 1px solid lightgray; height: 100px; border-radius: 4px; }
+    .btn { margin-top: 100px; background-color: #fff; font-size: 20px; border: 1px solid lightgray; }
+    #data { margin-top: 100px; border: 1px solid lightgray; height: 100px; border-radius: 4px; font-size: 16px; }
   </style>
 </head>
 <body>
@@ -15,9 +15,8 @@
   </div>
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/static/rainbow.js"></script>
   <script type="text/javascript">
-
-    $('button').css('background-color', '#fff').css('font-size', '20px').css('border', '1px solid lightgray');
 
     var data = [
       {
@@ -31,8 +30,24 @@
     ]
 
     function successYo(results) {
-      
-      $('#data').html(results);
+
+      $('#data').html("Success, yo!").css('text-align', 'center').css('padding-top', '15px');
+
+      $('#data').rainbow({ 
+        colors: [
+            '#FF0000',
+            '#f26522',
+            '#fff200',
+            '#00a651',
+            '#28abe2',
+            '#2e3192',
+            '#6868ff'
+        ],
+        animate: true,
+        animateInterval: 100,
+        pad: false,
+        pauseLength: 100,
+      });
     }
 
     function send_data() {
