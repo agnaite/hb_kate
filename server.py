@@ -13,15 +13,13 @@ def get_homepage():
 
 @app.route('/get_list', methods=['POST'])
 def get_list():
+    """Gets a list of objects from send_data()"""
 
     data = request.get_json()
     modified_data = {}
 
     for i, item in enumerate(data['data']):
-        print item
         modified_data[i] = item
-
-    print modified_data
 
     return jsonify(modified_data)
 
